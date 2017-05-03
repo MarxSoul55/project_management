@@ -8,7 +8,7 @@ in larger teams than the groups of 2s or 3s you are used to. You will be
 formed into groups of 5 or 6 for this one, and will use a source code
 management system like Git or Mercurial.
 
-*Added in by project manager*
+****Added in by project manager****
 See this link for details. https://gist.github.com/MarxSoul55/9052b77f354d89c350bb2a7cc33e804e
 
 Don't just rely on the above link! Also see:
@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=73I5dRucCds
 Countless more tutorials online.
 It's important that you figure out how to use Git ASAP.
 I think learning Git will actually be harder than the project itself (lol).
-*End added in by project manager*
+****End added in by project manager****
 
 First, I will assign a project leader. The project leader is expressly
 forbidden from writing any source code, but is free to help the other
