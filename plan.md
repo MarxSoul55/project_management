@@ -37,3 +37,6 @@ it to is > 255.
 * It also needs to have a public method for incrementing it by 1.
 The same rules apply for the get-function: if `data` ends up being
 \> 255 after the increment, prints "BAD INPUT" and exits the entire program.
+
+4. Someone is going to have to take all of the code specified in the above parts and combine it into the complete program.
+* TODO explain this
