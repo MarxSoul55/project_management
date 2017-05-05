@@ -25,6 +25,10 @@ use that fact to check for one of the error-cases
 * Second, you need the actual integer value. It should just be
 simply one index past the equals sign onwards to the end.
 * Now simply add both those substrings into a vector of strings and return it.
+* You're not done yet! You have to consider that sometimes the user isn't setting a variable...
+* But instead just entering an expression, per the README.
+* In that case, there would be no equals sign, so you can parse the string for it...
+* And if it's not there, then return a vector with the expression only.
 
 3. The stupid, unnecessary class that just complicates this assignment.
 * This one is detailed in grading point #3 in the README.
