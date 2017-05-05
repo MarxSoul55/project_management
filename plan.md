@@ -12,6 +12,7 @@ Your .cc file will implement one and only one of the following points:
 * It needs to take a single letter `char` as a key and map it to an integer.
 * The STL looks like it might have you covered: http://www.cplusplus.com/reference/unordered_map/unordered_map/
 * Excellent example of it: http://stackoverflow.com/questions/2179946/i-would-like-to-see-a-hash-map-example-in-c
+* Global hash table.
 
 2. Reading input.
 * It should follow what is specified in README.
