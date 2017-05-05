@@ -47,3 +47,23 @@ The same rules apply for the get-function: if `data` ends up being
 
 4. Someone is going to have to take all of the code specified in the above parts and combine it into the complete program.
 * TODO explain this
+
+### How to send source files to me.
+
+* If you have your .cc files on the server, you need to be able to download those files onto your local computer, where you will then
+put them into a .zip file and send them to me via email.
+* To do this, you need a FTP Client (a file-transfer-protocol client).
+* You should use FileZilla. It's a beautiful and free FTP client that respects your freedom (licensed with GNU).
+* Download it from this link: https://filezilla-project.org/
+* You want the CLIENT, NOT THE SERVER!
+* Go ahead and install it.
+* Now open it. Ignore everything except the top left-hand corner.
+* You should see 4 boxes.
+* In `host`, type `www.csci4x.com`.
+* In username, type your username for the server; same for password.
+* In port, type 22.
+* Now click on `Quickconnect`. You are now connected to the server.
+* From here, you can navigate through the server's folders and drag-and-drop files from
+the server to your PC.
+* Now that you have the files on your PC, zip them up into a .zip file, and send them to me via email.
+* I will handle the Github stuff.
