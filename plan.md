@@ -45,7 +45,20 @@ it to is > 255.
 The same rules apply for the get-function: if `data` ends up being
 \> 255 after the increment, prints "BAD INPUT" and exits the entire program.
 
-4. Someone is going to have to take all of the code specified in the above parts and combine it into the complete program.
+4. The logic.
+* This one is basically just the logic of the calculator.
+* You'll be given a string of an expression. There will be variables, like `x` or `y` for example.
+* You need to communicate with the person who implemented the hash table to see how you *would* recover
+the values for those variables and replace them in the expression.
+* Now you'll have a string of the expression without variables, just numbers.
+* You need to parse the string and extract the values and operations.
+* So you'll need to figure out how to convert a string to an integer (good luck).
+* You also need to handle the operations.
+* At the end of it all, you'll return an integer, NOT A FLOAT.
+* This of course means that if you do something like division it won't be the actual answer if there's a remainder.
+* But that's what Kerney wants :P
+
+5. Someone is going to have to take all of the code specified in the above parts and combine it into the complete program.
 * TODO explain this
 
 ### How to send source files to me.
