@@ -36,4 +36,4 @@ screen and exit the entire program IF the value you're trying to set
 it to is > 255.
 * It also needs to have a public method for incrementing it by 1.
 The same rules apply for the get-function: if `data` ends up being
-> 255 after the increment, prints "BAD INPUT" and exits the entire program.
+\> 255 after the increment, prints "BAD INPUT" and exits the entire program.
