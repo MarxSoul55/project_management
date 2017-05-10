@@ -1,4 +1,4 @@
-The plan with this assignment is to make it AS MODULAR AS POSSIBLE.
+The plan with this assignment is to make it AS MODULAR AS POSSIBLE!!
 Each of you will create your own completely separate .cc files.
 
 ALL CODE MUST BE DOCUMENTED AS PER GRADING POINT #2 IN THE README FILE.
