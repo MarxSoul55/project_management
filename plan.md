@@ -59,7 +59,15 @@ the values for those variables and replace them in the expression.
 * But that's what Kerney wants :P
 
 5. Someone is going to have to take all of the code specified in the above parts and combine it into the complete program.
-* TODO explain this
+* Note: With regards to the "SpecialInt" class, I think there's a way we can circumvent actually using it in a meaningful way.
+* Kerney doesn't require that the results from the algebraic expressions themselves be integers from that class.
+* So what can happen is, we do everything as if the integers were just normal (i.e. declared with `int`).
+* And when we set, use, and change those normal integers, we make a copy of them using the "SpecialInt" class.
+* And we change the private data field of the SpecialInt class (using public methods of course) to equal whatever happens to the normal integers.
+* So if we have an integer x = 3, and y = 5, we create two SpecialInts that are the same value.
+* When x changes or y changes, we change the two SpecialInts accordingly.
+* So if we use x and y in an expression (and they of course increment by 1 afterwards), we up our two SpecialInts as well.
+* We basically achieve what Kerney is asking us to do in the README without actually using it in a meaningful way!
 
 ### How to send source files to me.
 
