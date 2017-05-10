@@ -67,6 +67,14 @@ the values for those variables and replace them in the expression.
 * So if we use x and y in an expression (and they of course increment by 1 afterwards), we up our two SpecialInts as well.
 * We basically achieve what Kerney is asking us to do in the README without actually using it in a meaningful way!
 
+6. One more small thing for the person doing 5...
+* Make sure that at the VERY BEGINNING of the program, the following is couted to the screen:
+* `This software is licensed with the GNU Affero GPL v3.0. This means it respects your freedom! To learn more about GNU and their amazing licenses, see the following link: https://www.gnu.org/philosophy/free-sw.html`
+* `endl`
+* `The source code for this program can be found here: https://github.com/MarxSoul55/project_management`
+* `endl`
+* `endl`
+
 ### How to send source files to me.
 
 * If you have your .cc files on the server, you need to be able to download those files onto your local computer, where you will then
