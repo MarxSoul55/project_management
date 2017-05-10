@@ -55,7 +55,7 @@ See below for my pseudocode; descriptions of what I'm thinking after `#`
             # Basically just store the SpecialInt into the global hash table
     
     func main()
-        # Now in main, of course we should print out the license stuff
+        # Now in main, of course we should print out the license stuff (as specified in PLAN.md point 5)
         # Then in a while True loop...
             # call read_input and save result into variable
             # put that variable into calc function
