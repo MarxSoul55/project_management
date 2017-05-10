@@ -29,6 +29,7 @@ simply one index past the equals sign onwards to the end.
 * But instead just entering an expression, per the README.
 * In that case, there would be no equals sign, so you can parse the string for it...
 * And if it's not there, then return a vector with the expression only.
+* NOTE for person doing number 5: Anyone using this function would be able to tell whether an expression or variable-set was inputed BASED OFF OF THE SIZE OF THE VECTOR! So if it's of size 1, you know it's an expression, and so on.
 
 3. The stupid, unnecessary class that just complicates this assignment.
 * This one is detailed in grading point #3 in the README.
