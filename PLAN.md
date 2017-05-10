@@ -57,26 +57,16 @@ the values for those variables and replace them in the expression.
 * This of course means that if you do something like division it won't be the actual answer if there's a remainder.
 * But that's what Kerney wants :P
 
-5. Someone is going to have to take all of the code specified in the above parts and combine it into the complete program.
-* Note: With regards to the "SpecialInt" class, I think there's a way we can circumvent actually using it in a meaningful way.
-* Kerney doesn't require that the results from the algebraic expressions themselves be integers from that class.
-* So what can happen is, we do everything as if the integers were just normal (i.e. declared with `int`).
-* And when we set, use, and change those normal integers, we make a copy of them using the "SpecialInt" class.
-* And we change the private data field of the SpecialInt class (using public methods of course) to equal whatever happens to the normal integers.
-* So if we have an integer x = 3, and y = 5, we create two SpecialInts that are the same value.
-* When x changes or y changes, we change the two SpecialInts accordingly.
-* So if we use x and y in an expression (and they of course increment by 1 afterwards), we up our two SpecialInts as well.
-* We basically achieve what Kerney is asking us to do in the README without actually using it in a meaningful way!
-
-6. One more small thing for the person doing 5...
-* Make sure that at the VERY BEGINNING of the program, the following is couted to the screen:
+5. Someone is going to have to take all the code specified in the above parts and combine it into one main.cc file.
+* I'VE WENT MORE INTO DETAIL IN "COMBINING.md" about this part!
+* Make sure that at the VERY BEGINNING of the program (in main()), the following is couted to the screen:
 * `This software is licensed with the GNU Affero GPL v3.0. This means it respects your freedom! To learn more about GNU and their amazing licenses, see the following link: https://www.gnu.org/philosophy/free-sw.html`
 * `endl`
 * `The source code for this program can be viewed/downloaded here: https://github.com/MarxSoul55/project_management`
 * `endl`
 * `endl`
 
-7. After the program is completely done, we should further edit the program to get Extra Credit (i.e. the `loop` command)
+6. After the program is completely done, we should further edit the program to get Extra Credit (i.e. the `loop` command)
 * See details in README.txt
 
 ### How to send source files to me.
