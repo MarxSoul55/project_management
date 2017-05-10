@@ -76,6 +76,9 @@ the values for those variables and replace them in the expression.
 * `endl`
 * `endl`
 
+7. After the program is completely done, we should further edit the program to get Extra Credit (i.e. the `loop` command)
+* See details in README.txt
+
 ### How to send source files to me.
 
 * If you have your .cc files on the server, you need to be able to download those files onto your local computer, where you will then
