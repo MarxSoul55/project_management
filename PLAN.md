@@ -72,7 +72,7 @@ the values for those variables and replace them in the expression.
 * Make sure that at the VERY BEGINNING of the program, the following is couted to the screen:
 * `This software is licensed with the GNU Affero GPL v3.0. This means it respects your freedom! To learn more about GNU and their amazing licenses, see the following link: https://www.gnu.org/philosophy/free-sw.html`
 * `endl`
-* `The source code for this program can be viewed/downloaded HERE: https://github.com/MarxSoul55/project_management`
+* `The source code for this program can be viewed/downloaded here: https://github.com/MarxSoul55/project_management`
 * `endl`
 * `endl`
 
