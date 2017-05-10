@@ -1,5 +1,3 @@
-(Incomplete)
-
 The plan with this assignment is to make it AS MODULAR AS POSSIBLE.
 Each of you will create your own completely separate .cc files.
 
