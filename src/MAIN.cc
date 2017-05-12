@@ -30,6 +30,7 @@ void peacefully_die() {
 
 // Pre-Con: Need some way to check if string is integer.
 // Post-Con: Function returns true if so, false otherwise
+// Input: String to check
 inline bool is_int(const string &s) {
 	if (s.empty() || ((!isdigit(s[0])) && (s[0] != '+'))) return false;
 	char *p;
@@ -44,6 +45,7 @@ class SpecialInt {
 	public:
 		// Pre-Con: Trying to set a variable.
 		// Post-Con: Set the variable, die if invalid.
+		// Input: Integer to set.
 		void set_data(int x) {
 			if (x > 255) die();
 			data = x;
@@ -111,6 +113,7 @@ vector<string> input() {
 
 // Pre-Con: Need logic of calculator.
 // Post-Con: Result, but error if trying to use nonexistent variable.
+// Input: statement, e.g. "x + y / 2"
 int logic(string statement) {
 	int retval;
 	// Separate the statement into logical parts.
