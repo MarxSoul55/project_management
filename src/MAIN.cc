@@ -17,6 +17,11 @@ void die() {
 	exit(EXIT_FAILURE);
 }
 
+void peacefully_die() {
+	// Die peacefully, no "INVALID INPUT!"
+	exit(EXIT_SUCCESS);
+}
+
 inline bool is_int(const string &s) {
 	if (s.empty() || ((!isdigit(s[0])) && (s[0] != '+'))) return false;
 	char *p;
@@ -50,6 +55,7 @@ vector<string> input() {
 	vector<string> retval;
 	string statement;
 	getline(cin, statement);
+	if (!cin) peacefully_die();
 	size_t found_let = statement.find("LET");
 	size_t found_equals = statement.find("=");
 	// "LET" is in there, so we're setting a variable!
@@ -64,6 +70,8 @@ vector<string> input() {
 			string var_name;
 			var_name.push_back(statement.at(4));
 			// Value should start at index: 8
+			// But wait! No negatives.
+			if (statement.at(8) == '-') die();
 			string var_value = statement.substr(8, (statement.size() - 1) - 7);
 			retval.push_back(var_name);
 			retval.push_back(var_value);
@@ -92,11 +100,16 @@ int logic(string statement) {
 	istringstream iss(statement);
 	vector<string> vec;
 	copy(istream_iterator<string> (iss), istream_iterator<string>(), back_inserter(vec));
+	// No operators at the end of vec! Makes no sense!
+	string last = vec.at(vec.size()-1);
+	if (last == "+" || last == "-" || last == "*" || last == "/" || last == "^" || last == "%") {
+		die();
+	}
 	// Create stack for evaluation.
 	vector<string> op_table;
 	/*
 	if (vec.size() == 1) {
-		// TODO
+		//
 	}
 	*/
 	for (string s : vec) {
@@ -105,10 +118,14 @@ int logic(string statement) {
 		// This fucks all the logic up! Needed to add check for this!
 		if (vec.size() == 1) {
 			if (table.find(s) != table.end()) {
-				table[s].increment_data();
 				retval = table[s].get_data();
+				table[s].increment_data();
+				//retval = table[s].get_data();
 				return retval;
-			}
+			} else if (is_int(s)) {
+				retval = stoi(s);
+				return retval;
+			} else { die(); } // Doesn't exist.
 		}
 		if (op_table.size() == 3) {
 			// We got the operator.
@@ -120,6 +137,7 @@ int logic(string statement) {
 			// If the string is not an integer, it must be a variable. Look it up!
 			// We're also handling conversion from a string to an integer with this.
 			if (!is_int(op_table.at(0))) {
+				if (table.find(op_table.at(0)) == table.end()) die();
 				val1 = table[op_table.at(0)].get_data();
 				table[op_table.at(0)].increment_data();
 			}
@@ -127,6 +145,7 @@ int logic(string statement) {
 			else { val1 = stoi(op_table.at(0)); }
 			// Do the same process for the second item.
 			if (!is_int(op_table.at(2))) {
+				if (table.find(op_table.at(2)) == table.end()) die();
 				val2 = table[op_table.at(2)].get_data();
 				table[op_table.at(2)].increment_data();
 			}
@@ -154,19 +173,23 @@ int logic(string statement) {
 				retval = result;
 			}
 			else if (operat == "/") {
+				if (val2 == 0) die();
 				int result = val1 / val2;
 				op_table.clear();
 				op_table.push_back(to_string(result));
 				retval = result;
 			}
 			else if (operat == "^") {
-				// TODO POSSIBLE ERROR WITH VAL1; SHOULD BE FLOAT INSTEAD OF INT????
+				// No 0^0
+				if (val1 == 0 && val2 == 0) die();
 				int result = pow(val1, val2);
 				op_table.clear();
 				op_table.push_back(to_string(result));
 				retval = result;
 			}
 			else if (operat == "%") {
+				// No 0 % 0
+				if (val2 == 0) die();
 				int result = val1 % val2;
 				op_table.clear();
 				op_table.push_back(to_string(result));
