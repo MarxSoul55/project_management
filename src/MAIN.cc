@@ -17,6 +17,13 @@ void die() {
 	exit(EXIT_FAILURE);
 }
 
+inline bool is_int(const string &s) {
+	if (s.empty() || ((!isdigit(s[0])) && (s[0] != '+'))) return false;
+	char *p;
+	strtol(s.c_str(), &p, 10);
+	return (*p == 0);
+}
+
 
 class SpecialInt {
 	private:
@@ -36,6 +43,8 @@ class SpecialInt {
 		}
 };
 
+// Hash table.
+unordered_map <string, SpecialInt> table;
 
 vector<string> input() {
 	vector<string> retval;
@@ -78,15 +87,94 @@ vector<string> input() {
 
 
 int logic(string statement) {
+	int retval;
 	// Separate the statement into logical parts.
 	istringstream iss(statement);
 	vector<string> vec;
 	copy(istream_iterator<string> (iss), istream_iterator<string>(), back_inserter(vec));
 	// Create stack for evaluation.
-	stack<int> my_stack;
+	vector<string> op_table;
+	/*
 	if (vec.size() == 1) {
 		// TODO
 	}
+	*/
+	for (string s : vec) {
+		// We're going to treat this kinda like the RPN calculator.
+		op_table.push_back(s);
+		// This fucks all the logic up! Needed to add check for this!
+		if (vec.size() == 1) {
+			if (table.find(s) != table.end()) {
+				table[s].increment_data();
+				retval = table[s].get_data();
+				return retval;
+			}
+		}
+		if (op_table.size() == 3) {
+			// We got the operator.
+			string operat = op_table.at(1);
+			// We have to declare the first and second values because of stupid C++ scoping rules.
+			int val1;
+			int val2;
+			// The first value.
+			// If the string is not an integer, it must be a variable. Look it up!
+			// We're also handling conversion from a string to an integer with this.
+			if (!is_int(op_table.at(0))) {
+				val1 = table[op_table.at(0)].get_data();
+				table[op_table.at(0)].increment_data();
+			}
+			// OK, it's an integer then. Let's make it so (via conversion as before).
+			else { val1 = stoi(op_table.at(0)); }
+			// Do the same process for the second item.
+			if (!is_int(op_table.at(2))) {
+				val2 = table[op_table.at(2)].get_data();
+				table[op_table.at(2)].increment_data();
+			}
+			else { val2 = stoi(op_table.at(2)); }
+			// Now we got the integer values. Now based off of the operator, let's do this!
+			if (operat == "+") {
+				// We got the result.
+				int result = val1 + val2;
+				// Clear the operation table.
+				op_table.clear();
+				// Now add the string of the result back onto it!
+				op_table.push_back(to_string(result));
+				retval = result;
+			}
+			else if (operat == "-") {
+				int result = val1 - val2;
+				op_table.clear();
+				op_table.push_back(to_string(result));
+				retval = result;
+			}
+			else if (operat == "*") {
+				int result = val1 * val2;
+				op_table.clear();
+				op_table.push_back(to_string(result));
+				retval = result;
+			}
+			else if (operat == "/") {
+				int result = val1 / val2;
+				op_table.clear();
+				op_table.push_back(to_string(result));
+				retval = result;
+			}
+			else if (operat == "^") {
+				// TODO POSSIBLE ERROR WITH VAL1; SHOULD BE FLOAT INSTEAD OF INT????
+				int result = pow(val1, val2);
+				op_table.clear();
+				op_table.push_back(to_string(result));
+				retval = result;
+			}
+			else if (operat == "%") {
+				int result = val1 % val2;
+				op_table.clear();
+				op_table.push_back(to_string(result));
+				retval = result;
+			}
+		}
+	}
+	return retval;
 }
 
 
@@ -101,8 +189,8 @@ int main() {
 			SpecialInt val;
 			val.set_data(stoi(vec.at(1)));
 			// But wait! We can't redeclare a variable! Let's make sure of that.
-			if (hash.find(vec.at(0)) == hash.end()) {
-				hash[vec.at(0)] = val;
+			if (table.find(vec.at(0)) == table.end()) {
+				table[vec.at(0)] = val;
 			}
 			// We must be trying to redeclare a variable! Bad!
 			else {
@@ -112,6 +200,7 @@ int main() {
 		else {
 			// Call logic function.
 			int result = logic(vec.at(0));
+			cout << result << endl;
 		}
 	}
 	return 0;
