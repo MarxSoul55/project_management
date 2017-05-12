@@ -14,16 +14,22 @@
 
 using namespace std;
 
+// Pre-Con: Some sort of unacceptable error has occurred that warrants a shutdown.
+// Post-Con: The program dies, printing "INVALID INPUT!"
 void die() {
 	cout << "INVALID INPUT!" << endl;
 	exit(EXIT_FAILURE);
 }
 
+// Pre-Con: Reached end of a file.
+// Post-Con: Peaceful exit, no "INVALID INPUT!"
 void peacefully_die() {
 	// Die peacefully, no "INVALID INPUT!"
 	exit(EXIT_SUCCESS);
 }
 
+// Pre-Con: Need some way to check if string is integer.
+// Post-Con: Function returns true if so, false otherwise
 inline bool is_int(const string &s) {
 	if (s.empty() || ((!isdigit(s[0])) && (s[0] != '+'))) return false;
 	char *p;
@@ -36,14 +42,20 @@ class SpecialInt {
 	private:
 		int data;
 	public:
+		// Pre-Con: Trying to set a variable.
+		// Post-Con: Set the variable, die if invalid.
 		void set_data(int x) {
 			if (x > 255) die();
 			data = x;
 		}
+		// Pre-Con: Trying to get variable.
+		// Post-Con: Returns variable.
 		int get_data() {
 			if (data > 255) die();
 			return data;
 		}
+		// Pre-Con: Need to increment data by 1 per directions.
+		// Post-Con: Done, but error if now > 255.
 		void increment_data() {
 			if (data + 1 > 255) die();
 			data++;
@@ -53,6 +65,8 @@ class SpecialInt {
 // Hash table.
 unordered_map <string, SpecialInt> table;
 
+// Pre-Con: Need to read input from user.
+// Post-Con: Done, but error if invalid statement or variable set to negative number.
 vector<string> input() {
 	vector<string> retval;
 	string statement;
@@ -95,7 +109,8 @@ vector<string> input() {
 	}
 }
 
-
+// Pre-Con: Need logic of calculator.
+// Post-Con: Result, but error if trying to use nonexistent variable.
 int logic(string statement) {
 	int retval;
 	// Separate the statement into logical parts.
@@ -202,7 +217,8 @@ int logic(string statement) {
 	return retval;
 }
 
-
+// Pre-Con: Main function for operation.
+// Post-Con: Main function, quits when necessary.
 int main() {
 	// Hash table that holds variables.
 	unordered_map<string, SpecialInt> hash;
