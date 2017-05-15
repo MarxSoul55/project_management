@@ -223,6 +223,12 @@ int logic(string statement) {
 // Pre-Con: Main function for operation.
 // Post-Con: Main function, quits when necessary.
 int main() {
+    // License stuff.
+    cout << "---begin license info---" << endl;
+    cout << "The following program is free software, licensed under the GNU Affero GPL v3.0." << endl;
+    cout << "The source for this program can be viewed/downloaded from:" << endl;
+    cout << "https://github.com/MarxSoul55/project_management/releases" << endl;
+    cout << "---end license info---" << endl;
     // Hash table that holds variables.
     unordered_map<string, SpecialInt> hash;
     while (true) {
