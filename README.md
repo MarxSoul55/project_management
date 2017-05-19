@@ -7,4 +7,4 @@ folder `legacy` contains contextual information for the project, as well as the 
 files, with `MAIN.cc` being the entry-point.
 
 The final version of the code is in `src`, with the corresponding compiled program (for Windows) 
-available under `a.exe`.
+available under `a.exe` in the latest release.
